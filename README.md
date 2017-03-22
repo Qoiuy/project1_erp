@@ -11,4 +11,5 @@
 </br>![第7步](https://github.com/Qoiuy/project1_erp/blob/master/markdown_use/image/7_20170322190140.png)
 </br>![第8步](https://github.com/Qoiuy/project1_erp/blob/master/markdown_use/image/8_20170322190217.png)
 
-#step2 Eclipse忽略项目配置文件（持续更新，以最新的为准）
+
+
