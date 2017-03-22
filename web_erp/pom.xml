@@ -8,4 +8,14 @@
   <artifactId>web_erp</artifactId>
   <packaging>war</packaging>
   <description>这样写是有原因的。原本的项目是没有maven的，需要导入jar包的，个人感觉导入jar包并没有maven方便。所以配置了maven</description>
+  
+  
+	<properties>
+		<!--  -->
+		<java-version>1.7</java-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+	
+	
 </project>
