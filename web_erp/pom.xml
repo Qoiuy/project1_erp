@@ -1,0 +1,11 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>project1_erp</groupId>
+    <artifactId>project1_erp</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>web_erp</artifactId>
+  <packaging>war</packaging>
+  <description>这样写是有原因的。原本的项目是没有maven的，需要导入jar包的，个人感觉导入jar包并没有maven方便。所以配置了maven</description>
+</project>
