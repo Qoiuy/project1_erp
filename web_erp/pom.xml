@@ -1,91 +1,65 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>project1_erp</groupId>
-    <artifactId>project1_erp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>web_erp</artifactId>
-  <packaging>war</packaging>
-  <description>这样写是有原因的。原本的项目是没有maven的，需要导入jar包的，个人感觉导入jar包并没有maven方便。所以配置了maven</description>
-  
-  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>project1_erp</groupId>
+		<artifactId>project1_erp</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>web_erp</artifactId>
+	<packaging>war</packaging>
+
 	<properties>
-		<!-- 项目环境  -->
-		<spring.version>3.1.2.RELEASE</spring.version>
-		<hibernate.version>4.1.7.Final</hibernate.version>
-		<struts2.version>2.3.16</struts2.version>
-		<ss.plugin.version>2.3.4.1</ss.plugin.version>
+		<spring.version>4.1.3.RELEASE</spring.version>
+		<mybatis.version>3.3.0</mybatis.version>
+		<mybatis-spring.version>1.2.3</mybatis-spring.version>
+		<druid.version>1.0.9</druid.version>
 	</properties>
-	
-	<!-- 导入jar包  -->
-	<dependencies>
-		  <!-- spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
 
-        <!-- hibernate -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
+	<!-- step1:配置spring -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- spring 核心部件 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!--mybatis依赖 -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+			<!--spring只针对ibatis做了依赖,所以mybatis自身实现的spring整合依赖 -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>${mybatis-spring.version}</version>
+			</dependency>
+			<!-- mybatis dataSource配置使用 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
 
-        <!-- struts2 -->
-        <dependency>
-            <groupId>org.apache.struts</groupId>
-              <artifactId>struts2-core</artifactId>
-              <version>${struts2.version}</version>
-              <!-- 这里的 exclusions 是排除包，因为 Struts2中有javassist，Hibernate中也有javassist,
-                所以如果要整合Hibernate，一定要排除掉Struts2中的javassist，否则就冲突了。-->
-              <exclusions>
-                <exclusion>
-                    <groupId>javassist</groupId>
-                    <artifactId>javassist</artifactId>
-                </exclusion>
-              </exclusions> 
-        </dependency>
-        <!-- Struts2和Spring整合插件 -->
-         <dependency>
-             <groupId>org.apache.struts</groupId>
-             <artifactId>struts2-spring-plugin</artifactId>
-             <version>${ss.plugin.version}</version>
-         </dependency>
-        
-	</dependencies>
-	
-	
+		</dependencies>
+
+	</dependencyManagement>
 </project>
